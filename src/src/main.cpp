@@ -29,9 +29,17 @@ void printForward(const List& L) {
     cout << "\n";
 }
 
+void printBackward(const List& L) {
+    cout << "Backward: ";
+    for (Node* p = L.tail; p; p = p->prev)
+        cout << p->data << (p->prev ? " <-> " : "");
+    cout << "\n";
+}
+
 int main() {
     List songs;
     for (string s : {"Song A", "Song B", "Song C", "Song D", "Song E"}) pushBack(songs, s);
     printForward(songs);
+    printBackward(songs);
     return 0;
 }
