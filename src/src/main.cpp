@@ -36,9 +36,30 @@ void printBackward(const List& L) {
     cout << "\n";
 }
 
+Node* findNode(const List& L, const string& d) {
+    for (Node* p = L.head; p; p = p->next)
+        if (p->data == d) return p;
+    return nullptr;
+}
+
+bool insertAfter(List& L, const string& target, const string& d) {
+    Node* q = findNode(L, target);
+    if (!q) return false;
+    Node* n = new Node(d);
+    n->prev = q;
+    n->next = q->next;
+    if (q->next) q->next->prev = n; else L.tail = n;
+    q->next = n;
+    return true;
+}
+
 int main() {
     List songs;
     for (string s : {"Song A", "Song B", "Song C", "Song D", "Song E"}) pushBack(songs, s);
+    printForward(songs);
+    printBackward(songs);
+    cout << "\nSetelah insert Song X:\n";
+    insertAfter(songs, "Song B", "Song X");
     printForward(songs);
     printBackward(songs);
     return 0;
