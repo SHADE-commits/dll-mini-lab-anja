@@ -2,7 +2,7 @@
 
 ## [Nama]
 
-- **Name:** [Nama lengkap]
+- **Name:** Nayla Novtiera Anjani
 - **My main contribution:** Mengerjakan seluruh program dan dokumentasi sebagai tim satu orang.
 - **What I learned about next and prev:** [next dipakai untuk maju, prev untuk mundur, dan saat insert/delete keduanya harus diupdate]
 - **The hardest part:** [...]
