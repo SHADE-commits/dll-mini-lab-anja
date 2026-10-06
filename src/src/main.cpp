@@ -53,13 +53,28 @@ bool insertAfter(List& L, const string& target, const string& d) {
     return true;
 }
 
+bool deleteNode(List& L, const string& d) {
+    Node* p = findNode(L, d);
+    if (!p) return false;
+    if (p->prev) p->prev->next = p->next; else L.head = p->next;
+    if (p->next) p->next->prev = p->prev; else L.tail = p->prev;
+    delete p;
+    return true;
+}
+
 int main() {
     List songs;
     for (string s : {"Song A", "Song B", "Song C", "Song D", "Song E"}) pushBack(songs, s);
     printForward(songs);
     printBackward(songs);
+
     cout << "\nSetelah insert Song X:\n";
     insertAfter(songs, "Song B", "Song X");
+    printForward(songs);
+    printBackward(songs);
+
+    cout << "\nSetelah hapus Song C:\n";
+    deleteNode(songs, "Song C");
     printForward(songs);
     printBackward(songs);
     return 0;
